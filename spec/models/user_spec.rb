@@ -26,8 +26,8 @@ RSpec.describe User, type: :model do
 
     it 'destroys associated recipes when destroyed' do
       user = User.create(name: 'John Doe')
-      recipe = user.recipes.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30,
-                                   cooking_time: 45)
+      user.recipes.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30,
+                          cooking_time: 45)
       expect { user.destroy }.to change { Recipe.count }.by(-1)
     end
 
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
 
     it 'destroys associated foods when destroyed' do
       user = User.create(name: 'John Doe')
-      food = user.foods.create(name: 'Test Food', measurement_unit: 'g', quantity: 100, price: 5)
+      user.foods.create(name: 'Test Food', measurement_unit: 'g', quantity: 100, price: 5)
       expect { user.destroy }.to change { Food.count }.by(-1)
     end
   end

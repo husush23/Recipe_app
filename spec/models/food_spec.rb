@@ -92,7 +92,7 @@ RSpec.describe Food, type: :model do
         cooking_time: 45,
         user:
       )
-      recipe_food = RecipeFood.create(food:, recipe:, quantity: 2)
+      RecipeFood.create(food:, recipe:, quantity: 2)
       expect { food.destroy }.to change { RecipeFood.count }.by(-1)
     end
   end
