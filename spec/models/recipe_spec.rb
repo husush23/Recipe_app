@@ -10,7 +10,7 @@ RSpec.describe Recipe, type: :model do
         description: 'A test recipe',
         preparation_time: 30,
         cooking_time: 45,
-        user: user
+        user:
       )
       expect(recipe).to be_valid
     end
@@ -19,18 +19,18 @@ RSpec.describe Recipe, type: :model do
         description: 'A test recipe',
         preparation_time: 30,
         cooking_time: 45,
-        user: user
+        user:
       )
       expect(recipe).not_to be_valid
     end
 
-    
+
     it 'is not valid without a description' do
       recipe = Recipe.new(
         name: 'Test Recipe',
         preparation_time: 30,
         cooking_time: 45,
-        user: user
+        user:
       )
       expect(recipe).not_to be_valid
     end
@@ -41,7 +41,7 @@ RSpec.describe Recipe, type: :model do
         description: 'A test recipe',
         preparation_time: -10,
         cooking_time: 45,
-        user: user
+        user:
       )
       expect(recipe).not_to be_valid
     end
@@ -52,7 +52,7 @@ RSpec.describe Recipe, type: :model do
         description: 'A test recipe',
         preparation_time: 30,
         cooking_time: -10,
-        user: user
+        user:
       )
       expect(recipe).not_to be_valid
     end
