@@ -24,7 +24,6 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).not_to be_valid
     end
 
-
     it 'is not valid without a description' do
       recipe = Recipe.new(
         name: 'Test Recipe',

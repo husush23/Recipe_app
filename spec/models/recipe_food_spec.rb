@@ -17,7 +17,6 @@ RSpec.describe RecipeFood, type: :model do
       expect(recipe_food).to be_valid
     end
 
-
     it 'is not valid without a quantity' do
       recipe_food = RecipeFood.new(
         food:,
