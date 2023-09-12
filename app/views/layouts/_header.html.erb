@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <%# <a class="navbar-brand text-light" href="#">Recipe App</a> %>
+    <%= link_to 'Recipe App', root_path, class:"navbar-brand text-light"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      <% if user_signed_in? %>
+        <a class="nav-link text-light">Foods</a>
+        <a class="nav-link text-light">Recipe</a>
+        <a class="nav-link text-light">Shopping list</a>
+        <%= link_to 'Sing out', destroy_user_session_path, data: { turbo_method: :delete }, class:"nav-link text-light ms-5 ps-5"%>
+        <% else %>
+        <%= link_to 'Sing In', new_user_session_path, class:"nav-link text-light"%>
+        <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link text-light"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
