@@ -1,0 +1,27 @@
+<table class="table table-striped m-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th col-span>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @foods.each_with_index do |food, index| %>
+        <tr>
+            <td> <%= food.name %> </td>
+            <td> <%= food.quantity %> </td>
+            <td> <%= food.price %> </td>
+            <td> <%= food.measurement_unit %> </td>
+            <td>
+            <button type="button" class="btn btn-outline-info">Show</button>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+            </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success m-4">Add new food</button>
