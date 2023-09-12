@@ -26,7 +26,8 @@ RSpec.describe User, type: :model do
 
     it 'destroys associated recipes when destroyed' do
       user = User.create(name: 'John Doe')
-      recipe = user.recipes.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30, cooking_time: 45)
+      recipe = user.recipes.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30,
+                                   cooking_time: 45)
       expect { user.destroy }.to change { Recipe.count }.by(-1)
     end
 

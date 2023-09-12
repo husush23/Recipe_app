@@ -8,7 +8,7 @@ RSpec.describe Food, type: :model do
       food = Food.new(
         name: 'Test Food',
         measurement_unit: 'g',
-        user: user,
+        user:,
         quantity: 100,
         price: 5
       )
@@ -18,7 +18,7 @@ RSpec.describe Food, type: :model do
     it 'is not valid without a name' do
       food = Food.new(
         measurement_unit: 'g',
-        user: user,
+        user:,
         quantity: 100,
         price: 5
       )
@@ -28,7 +28,7 @@ RSpec.describe Food, type: :model do
     it 'is not valid without a measurement_unit' do
       food = Food.new(
         name: 'Test Food',
-        user: user,
+        user:,
         quantity: 100,
         price: 5
       )
@@ -49,7 +49,7 @@ RSpec.describe Food, type: :model do
       food = Food.new(
         name: 'Test Food',
         measurement_unit: 'g',
-        user: user,
+        user:,
         price: 5
       )
       expect(food).not_to be_valid
@@ -59,7 +59,7 @@ RSpec.describe Food, type: :model do
       food = Food.new(
         name: 'Test Food',
         measurement_unit: 'g',
-        user: user,
+        user:,
         quantity: 100
       )
       expect(food).not_to be_valid
@@ -81,7 +81,7 @@ RSpec.describe Food, type: :model do
       food = Food.create(
         name: 'Test Food',
         measurement_unit: 'g',
-        user: user,
+        user:,
         quantity: 100,
         price: 5
       )
@@ -90,9 +90,9 @@ RSpec.describe Food, type: :model do
         description: 'A test recipe',
         preparation_time: 30,
         cooking_time: 45,
-        user: user
+        user:
       )
-      recipe_food = RecipeFood.create(food: food, recipe: recipe, quantity: 2)
+      recipe_food = RecipeFood.create(food:, recipe:, quantity: 2)
       expect { food.destroy }.to change { RecipeFood.count }.by(-1)
     end
   end
