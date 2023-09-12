@@ -1,0 +1,21 @@
+<%= form_with do |form| %>
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, autocomplete: 'Name'%>
+    </div>
+    <div class="field">
+        <%= form.label :unit %>
+        <%= form.text_field :unit, autofocus: true, autocomplete: 'Unit'%>
+    </div>
+    <div class="field">
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, autofocus: true, autocomplete: 'Quantity'%>
+    </div>
+    <div class="field">
+        <%= form.label :price %>
+        <%= form.number_field :price, autofocus: true, autocomplete: 'Price'%>
+    </div>
+      <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
