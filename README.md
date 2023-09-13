@@ -178,7 +178,7 @@ Feel free to check the [issues page](https://github.com/husush23/Recipe_app/issu
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you encounter any issues or have questions about the project, feel free to reach out for support. Provide information on how users can contact you, such as through email, a dedicated support channel, or by raising issues on GitHub.
+If you encounter any issues or have questions about the project, feel free to reach out for support.Checkout teh socail links included in the authors, contact any of one or simply contribute this repo by raising a pull request on and always try to check the issues page.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
