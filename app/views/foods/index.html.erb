@@ -5,7 +5,7 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Unit</th>
-            <th col-span>Actions</th>
+            <th col-span>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,10 @@
             <td> <%= food.price %> </td>
             <td> <%= food.measurement_unit %> </td>
             <td>
-            <button type="button" class="btn btn-outline-info">Show</button>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
+                   <%= link_to "Delete", food_path(food), method: :delete, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: 'btn btn-outline-danger' %>
             </td>
         </tr>
         <%end%>
