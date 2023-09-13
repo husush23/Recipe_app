@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
       <% if user_signed_in? %>
-        <a class="nav-link text-light">Foods</a>
+        <%= link_to 'Foods', foods_path, class:"nav-link text-light"%>
         <a class="nav-link text-light">Recipe</a>
         <a class="nav-link text-light">Shopping list</a>
         <%= link_to 'Sing out', destroy_user_session_path, data: { turbo_method: :delete }, class:"nav-link text-warning ms-5 ps-5"%>
