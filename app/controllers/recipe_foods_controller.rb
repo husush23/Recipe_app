@@ -10,10 +10,20 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
 
     if @recipe_food.save
-      redirect_to recipe_path(@recipe.id), notice: 'Food added to the recipe successfully.'
+      redirect_to recipe_path(@recipe.id), notice: 'Food added from the recipe successfully.'
     else
       @foods = Food.all
       render :new
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
+    if @recipe_food.destroy
+      redirect_to recipe_path(@recipe.id), notice: 'Food removed form the recipe successfully.'
+    else
+      flash.now[:alert] = 'Failed to remove food from recipe foods list.'
     end
   end
 
