@@ -1,0 +1,7 @@
+<div>
+  <%= form_with model: [@recipe, @recipe_food], url: recipe_recipe_foods_path(@recipe), method: :post do |form| %>
+    <%= form.collection_select :food_id, @foods, :id, :name, prompt: 'Select a food' %>
+    <%= form.number_field :quantity, placeholder: 'Enter quantity' %>
+    <%= form.submit 'Add Food' %>
+  <% end %>
+</div>
