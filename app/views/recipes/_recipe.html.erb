@@ -1,5 +1,5 @@
 <div>
-    <h2><%= recipe.name %></h2>
+    <%= link_to recipe.name, recipe_path(recipe.id) %>
     <p><%= recipe.description %></p>
     <%# <%= link_to 'REMOVE', , action: :destroy %>
     <%= link_to "REMOVE", recipe_path(recipe.id), data: { "turbo-method": :delete } %>

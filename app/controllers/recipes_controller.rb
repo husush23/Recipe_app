@@ -3,6 +3,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(user_id: current_user.id)
   end
 
+  def show
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+  end
+
   def new
     @recipe = Recipe.new
     @user = current_user

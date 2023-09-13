@@ -1,0 +1,23 @@
+<h3>preparation time: <%= @recipe.preparation_time %></h3>
+<h3>cooking time: <%= @recipe.cooking_time %></h3>
+
+<%= link_to 'add ingredients', new_recipe_recipe_food_path(@recipe.id) %>
+
+<div>
+  <h2>FOOD LIST:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <%= render partial: 'recipe_food_row', locals: { recipe_food: recipe_food, recipe: @recipe } %>
+    <% end %>
+  </tbody>
+  </table>
+</div>
