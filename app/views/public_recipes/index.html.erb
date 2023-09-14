@@ -1,14 +1,23 @@
-require 'rails_helper'
-
-feature 'Public Recipes Index' do
-  scenario 'should show a list of public recipes' do
-    # Create some public recipes
-    create_list(:recipe, 3, public: true)
-
-    # Visit the public recipes index page
-    visit public_recipes_path
-
-    # Expect to see a list of public recipes
-    expect(page).to have_css('.card', count: 3)
-  end
-end
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8">
+    <% @public_recipes.each do |recipe| %>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to recipe.name, recipe_path(recipe.id) %></h5>
+              <h4>By  <%= recipe.user.name %></h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-body">
+              <p class="card-text">Total food: <%= recipe.recipe_foods.sum(:quantity) %></p>
+              <p class="card-text">Total price: $<%= recipe.recipe_foods.sum { |rf| rf.quantity * rf.food.price } %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to 'Add a recipe', new_recipe_path, class: "btn btn-success" %>
+  </div>
+</div>
