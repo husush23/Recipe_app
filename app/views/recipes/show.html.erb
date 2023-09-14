@@ -1,10 +1,10 @@
-  <div class="row justify-content-center mt-4">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-body">
-          <div class="container d-flex justify-content-center align-items-center">
-            <h2 class="card-title"><%= @recipe.name %></h2>
-          </div>
+<div class="row justify-content-center mt-4">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <div class="container d-flex justify-content-center align-items-center">
+          <h2 class="card-title"><%= @recipe.name %></h2>
+        </div>
 
         <div class="container d-flex justify-content-between">
           <div>
@@ -12,7 +12,7 @@
             <p>Cooking Time: <%= @recipe.cooking_time %></p>
             <p>Description: <%= @recipe.description %></p>
           </div>
-          <%= form_with url: recipe_path(@recipe), data: { "turbo-method": :patch}, model: @recipe do |form| %>
+          <%= form_with url: recipe_path(@recipe), data: { "turbo-method": :patch }, model: @recipe do |form| %>
             <div>
               <%= form.label :public, 'Public' %>
               <%= form.check_box :public, id: "public-checkbox", onchange: "this.form.submit();" %>
@@ -21,24 +21,26 @@
         </div>
         <div class="container d-flex justify-content-between">
           <%= link_to 'generate shopping list', shopping_list_path %>
-          <%= link_to 'Add Ingredients', new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-primary mb-2' %>
+          <% if current_user != @recipe.user %>
+            <%= link_to 'Add Ingredients', new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-primary mb-2' %>
+          <% end %>
         </div>
-          <table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Food</th>
-                <th>Quantity</th>
-                <th>Value</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @recipe.recipe_foods.each do |recipe_food| %>
-                <%= render partial: 'recipe_food_row', locals: { recipe_food: recipe_food, recipe: @recipe } %>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Value</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recipe.recipe_foods.each do |recipe_food| %>
+              <%= render partial: 'recipe_food_row', locals: { recipe_food: recipe_food, recipe: @recipe } %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
