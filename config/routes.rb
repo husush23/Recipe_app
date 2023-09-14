@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'shopping_list', to: 'shopping_list#index', as: 'shopping_list'
 
   resources :foods, only: [:index, :new, :create, :destroy]
-  resources :recipes, only: [:index, :new, :create, :destroy, :show] do
+  resources :recipes, only: [:index, :new, :create, :destroy, :show, :update] do
       resources :recipe_foods, only: [ :new, :create, :destroy]
   end
 end
