@@ -1,5 +1,31 @@
-<h1>Public recipes</h1>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Public Recipes </h2>
 
-<% @public_recipes.each do |recipe| %>
-    <li> <%= recipe.name %> | <%= recipe.description %>| <%= recipe.preparation_time  %> </li>
-<% end %>
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Prep time</th>
+                <th>Cooking time</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @public_recipes.each do |recipe| %>
+                <tr>
+                  <td><%= link_to recipe.name, recipe_path(recipe.id) %></td>
+                  <td><%= recipe.preparation_time %></td>
+                  <td><%= recipe.cooking_time %></td>
+                  <td><%= recipe.description %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to 'Add a recipe', new_recipe_path, class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+  </div>
