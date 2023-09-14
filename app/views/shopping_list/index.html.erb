@@ -5,14 +5,18 @@
         <p>Amount of food to buy: <span><%= @shopping_list.length %></span></p>
         <p>Total value of food needed: <%= @total_price %></span></p>
     </div>
-    <div>
-        <div>Food</div>
-        <div>Quantity</div>
-        <div>Price</div>
+    <table>
+        <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
         <% @shopping_list.each do |shopping_list_item| %>
-          <div><%= shopping_list_item[:food] %></div>
-          <div><%= "#{shopping_list_item[:quantity]} #{shopping_list_item[:unit]}" %></div>
-          <div><%= "#{shopping_list_item[:unit_price] * shopping_list_item[:quantity]} $" %></div>
+            <tr>
+                <td><%= shopping_list_item[:food] %></td>
+                <td><%= "#{shopping_list_item[:quantity]} #{shopping_list_item[:unit]}" %></td>
+                <td><%= "#{shopping_list_item[:unit_price] * shopping_list_item[:quantity]} $" %></td>
+            </tr>
         <% end %>
-    </div>
+    </table>
 </div>
