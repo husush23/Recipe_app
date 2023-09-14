@@ -24,6 +24,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update(updated_recipe_params)
+      redirect_to recipe_path(@recipe), notice: 'Recipe public status updated successfuly'
+    else
+      redirect_to recipe_path(@recipe), notice: 'Recipe could not be upddated'
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     if @recipe.destroy
@@ -37,5 +47,9 @@ class RecipesController < ApplicationController
 
   def new_recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+  end
+
+  def updated_recipe_params
+    params.require(:recipe).permit(:public)
   end
 end
