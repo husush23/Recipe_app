@@ -14,11 +14,13 @@
 
   <body>
     <%= render 'layouts/header'%>
+  <div class='container justify-content-center text-center'>
       <% flash.each do |type, message| %>
     <div class="alert alert-<%= type %>">
       <%= message %>
     </div>
   <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
