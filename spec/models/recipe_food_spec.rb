@@ -8,7 +8,6 @@ RSpec.describe RecipeFood, type: :model do
   end
 
   describe 'validations' do
-
     it 'is not valid without a quantity' do
       recipe_food = RecipeFood.new(
         food:,

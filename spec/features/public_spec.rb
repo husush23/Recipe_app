@@ -33,7 +33,7 @@ RSpec.feature 'Public Recipes', type: :feature do
       expect(page).to have_content('Recipe App')
     end
     it 'should have add buttom' do
-        expect(page).to have_content('Add a recipe')
+      expect(page).to have_content('Add a recipe')
     end
   end
 end

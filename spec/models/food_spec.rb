@@ -4,7 +4,6 @@ RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'John Doe') }
 
   describe 'validations' do
-
     it 'is not valid without a name' do
       food = Food.new(
         measurement_unit: 'g',

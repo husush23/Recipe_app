@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-
     it 'is not valid without a name' do
       user = User.new
       expect(user).not_to be_valid

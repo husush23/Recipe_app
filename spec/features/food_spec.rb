@@ -19,7 +19,7 @@ RSpec.describe 'Foods', type: :request do
       expect(response).to have_http_status(302)
     end
   end
-  
+
 
 
   describe ' /destroy' do
