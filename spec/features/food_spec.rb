@@ -20,8 +20,6 @@ RSpec.describe 'Foods', type: :request do
     end
   end
 
-
-
   describe ' /destroy' do
     it 'destroys the food' do
       expect do
