@@ -149,7 +149,7 @@ You can deploy this project using:
 
 👤 **Author 2**
 
-👤 **Hussein Hashi**
+👤 **Saloman**
 
 - GitHub: [Tshobohwa](https://github.com/Tshobohwa)
 - LinkedIn: [Tshobohwa](https://www.linkedin.com/in/tshobohwasalomon/)
