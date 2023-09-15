@@ -1,0 +1,34 @@
+<div class="container mt-4">
+<div class="container d-flex justify-content-end mr-2">
+    <%= link_to 'Add new food', new_food_path, class:"btn btn-success m-4"%>
+</div>
+
+<table class="table table-striped m-3 table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th col-span>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @foods.each_with_index do |food, index| %>
+        <tr>
+            <td> <%= food.name %> </td>
+            <td> <%= food.quantity %> </td>
+            <td> <%= food.price %> $</td>
+            <td> <%= food.measurement_unit %> </td>
+            <td>
+                   <%= link_to "Delete", food_path(food), method: :delete, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: 'btn btn-outline-danger' %>
+            </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+
+</div>

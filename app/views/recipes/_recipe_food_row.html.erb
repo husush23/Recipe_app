@@ -1,0 +1,8 @@
+<tr>
+    <td><%= recipe_food.food.name %></td>
+    <td><%= recipe_food.quantity %></td>
+    <td><%= recipe_food.food.price %>$</td>
+    <td>
+        <%=  link_to "REMOVE", recipe_recipe_food_path(recipe.id, recipe_food.id), data: { "turbo-method": :delete }, class:"btn btn-outline-danger" %>
+    </td>
+</tr>

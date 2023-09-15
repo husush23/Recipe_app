@@ -1,0 +1,20 @@
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Prep time</th>
+                <th>Cooking time</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% obj.each do |recipe| %>
+                <tr>
+                  <td><%= link_to recipe.name, recipe_path(recipe.id) %></td>
+                  <td><%= recipe.preparation_time %></td>
+                  <td><%= recipe.cooking_time %></td>
+                  <td><%= recipe.description %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
