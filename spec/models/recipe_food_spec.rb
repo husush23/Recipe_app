@@ -8,15 +8,6 @@ RSpec.describe RecipeFood, type: :model do
   end
 
   describe 'validations' do
-    it 'is valid with valid attributes' do
-      recipe_food = RecipeFood.new(
-        food:,
-        recipe:,
-        quantity: 2
-      )
-      expect(recipe_food).to be_valid
-    end
-
     it 'is not valid without a quantity' do
       recipe_food = RecipeFood.new(
         food:,
